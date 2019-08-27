@@ -24,7 +24,7 @@ public class BaseTest {
         getDriver().switchTo().frame(getDriver().findElement(By.xpath(locator)));
     }
 
-    public void switchToDefaultContent(){
+    public void switchToDefaultContent() {
         getDriver().switchTo().defaultContent();
     }
 
@@ -41,7 +41,7 @@ public class BaseTest {
      * @param url - url that you want to open
      */
     public void openBrowser(String url) {
-        getDriver().navigate().to(url);
+        getDriver().get(url);
     }
 
     /**
@@ -103,5 +103,13 @@ public class BaseTest {
         getDriver().findElement(By.xpath(locator)).clear();
     }
 
+    public void pause(int milliseconds) {
+        try {
+
+            Thread.sleep(milliseconds);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

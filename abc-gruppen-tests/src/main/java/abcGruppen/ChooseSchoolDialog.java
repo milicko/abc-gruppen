@@ -10,6 +10,7 @@ public class ChooseSchoolDialog extends BaseTest {
     public static final String INPUT_SET_TEXT = "//input[@class='select2-search__field']";
     public static final String BUTTON_DESIGN_HAT = "//a[normalize-space()='Designa med din skolas rabatter']";
     public static final String DIALOG_IFRAME = "//iframe[@class='mfp-iframe']";
+    public static final String OPEN_DROP_DOWN = "//span[@class='select2-selection__rendered']";
 
     /**
      * This switches to iframe, opens drop down, types name of the school and it chooses school
@@ -24,8 +25,8 @@ public class ChooseSchoolDialog extends BaseTest {
 
     private void chooseItemFromDropDown(String itemName) {
         switchToIframe(DIALOG_IFRAME);
-        waitForVisible(String.format(TEMPLATE_OPEN_DROP_DOW, "Välj skola..."));
-        click(String.format(TEMPLATE_OPEN_DROP_DOW, "Välj skola..."));
+        waitForVisible(OPEN_DROP_DOWN);
+        click(OPEN_DROP_DOWN);
         typeKeys(INPUT_SET_TEXT, itemName);
         waitForVisible(String.format(TEMPLATE_CHOOSE_DROP_DOWN, itemName));
         click(String.format(TEMPLATE_CHOOSE_DROP_DOWN, itemName));
